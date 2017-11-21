@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PiastrApp</string>
+    <string name="title_activity_home">Home</string>
+    <string name="sizeinfo"><u><b>SIZE INFO</b></u></string>
+</resources>
