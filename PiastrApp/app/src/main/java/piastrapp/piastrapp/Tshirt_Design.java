@@ -35,12 +35,13 @@ public class Tshirt_Design extends AppCompatActivity {
     private static Button button_text;
     private ImageView sw,img_view;
     private ImageButton b1,b2,b3,b4,b5,b6,b7,b8;
-    private Spinner spinner,spinner2;
+    private Spinner spinner,spinner2, spinner3;
     public int temp = 0;
     public int size = 0;
     public int vis = 0;
     public int photo = 0;
     public int textvis = 0;
+    public int quant = 0;
     private String price;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +68,7 @@ public class Tshirt_Design extends AppCompatActivity {
 
         spinner = (Spinner)findViewById(R.id.spinner2);
         spinner2 = (Spinner)findViewById(R.id.spinner3);
-
+        spinner3 = (Spinner)findViewById(R.id.spinner4);
 
         onClickButtonListener();
 
@@ -76,7 +77,10 @@ public class Tshirt_Design extends AppCompatActivity {
             public void onClick(View v) {
                 sw.setImageResource(R.drawable.smile);
                 temp=0;
-                price = culculateTotal(temp,size,vis,textvis);
+                if(quant == 0)
+                    price = culculateTotal(vis,textvis,1);
+                else
+                    price = culculateTotal(vis,textvis,quant);
                 TextView textView = (TextView) findViewById(R.id.text_total);
                 textView.setText(price);
             }
@@ -87,7 +91,10 @@ public class Tshirt_Design extends AppCompatActivity {
             public void onClick(View v) {
                 sw.setImageResource(R.drawable.vtshirt);
                 temp=1;
-                price = culculateTotal(temp,size,vis,textvis);
+                if(quant == 0)
+                    price = culculateTotal(vis,textvis,1);
+                else
+                    price = culculateTotal(vis,textvis,quant);
                 //setContentView(R.layout.activity_tshirt__design);
                 TextView textView = (TextView) findViewById(R.id.text_total);
                 textView.setText(price);
@@ -99,7 +106,10 @@ public class Tshirt_Design extends AppCompatActivity {
             public void onClick(View v) {
                 sw.setImageResource(R.drawable.white_long_sleeve);
                 temp=2;
-                price = culculateTotal(temp,size,vis,textvis);
+                if(quant == 0)
+                    price = culculateTotal(vis,textvis,1);
+                else
+                    price = culculateTotal(vis,textvis,quant);
                 //setContentView(R.layout.activity_tshirt__design);
                 TextView textView = (TextView) findViewById(R.id.text_total);
                 textView.setText(price);
@@ -114,14 +124,20 @@ public class Tshirt_Design extends AppCompatActivity {
                     img_view.setImageResource(R.drawable.heart);
                     photo = 1;
                     vis = 1;
-                    price = culculateTotal(temp,size,vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                    // setContentView(R.layout.activity_tshirt__design);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else if (vis == 1 && photo == 1){
                     vis = 0;
                     img_view.setVisibility(View.GONE);
-                    price = culculateTotal(temp,size,vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                    // setContentView(R.layout.activity_tshirt__design);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
@@ -142,14 +158,20 @@ public class Tshirt_Design extends AppCompatActivity {
                     img_view.setImageResource(R.drawable.wings);
                     photo = 2;
                     vis = 1;
-                    price = culculateTotal(temp,size,vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     //setContentView(R.layout.activity_tshirt__design);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else if (vis == 1 && photo == 2){
                     vis = 0;
                     img_view.setVisibility(View.GONE);
-                    price = culculateTotal(temp,size,vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     //setContentView(R.layout.activity_tshirt__design);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
@@ -170,14 +192,20 @@ public class Tshirt_Design extends AppCompatActivity {
                     img_view.setImageResource(R.drawable.bow);
                     photo = 3;
                     vis = 1;
-                    price = culculateTotal(temp,size,vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     //setContentView(R.layout.activity_tshirt__design);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else if (vis == 1 && photo == 3){
                     vis = 0;
                     img_view.setVisibility(View.GONE);
-                    price = culculateTotal(temp,size,vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     //setContentView(R.layout.activity_tshirt__design);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
@@ -198,14 +226,20 @@ public class Tshirt_Design extends AppCompatActivity {
                     img_view.setImageResource(R.drawable.tree);
                     photo = 4;
                     vis = 1;
-                    price = culculateTotal(temp,size,vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     //setContentView(R.layout.activity_tshirt__design);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else if (vis == 1 && photo == 4){
                     vis = 0;
                     img_view.setVisibility(View.GONE);
-                    price = culculateTotal(temp,size,vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     //setContentView(R.layout.activity_tshirt__design);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
@@ -225,14 +259,20 @@ public class Tshirt_Design extends AppCompatActivity {
                     img_view.setImageResource(R.drawable.flower);
                     photo = 5;
                     vis = 1;
-                    price = culculateTotal(temp,size,vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     //setContentView(R.layout.activity_tshirt__design);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else if (vis == 1 && photo == 5){
                     vis = 0;
                     img_view.setVisibility(View.GONE);
-                    price = culculateTotal(temp,size,vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     //setContentView(R.layout.activity_tshirt__design);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
@@ -352,14 +392,52 @@ public class Tshirt_Design extends AppCompatActivity {
 
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                size=i-1;
+            public void onItemSelected(AdapterView<?> adapterView, View view, int j, long l1) {
+                size=j-1;
                 if(size!=-1){
-                    price = culculateTotal(temp,size,vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }
                 else size=0;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView){
+
+            }
+        });
+
+        List<String> list3 = new ArrayList<String>();
+        list3.add("<Choose Quantity>");
+        list3.add("1");
+        list3.add("2");
+        list3.add("3");
+        list3.add("4");
+        list3.add("5");
+        list3.add("6");
+        list3.add("7");
+        list3.add("8");
+        list3.add("9");
+        list3.add("10+");
+        ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list3);
+        dataAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner3.setAdapter(dataAdapter3);
+
+        spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int z, long l2) {
+                quant = z;
+                if (z==0)
+                    price = culculateTotal(vis,textvis,1);
+                else
+                    price = culculateTotal(vis,textvis,quant);
+                TextView textView = (TextView) findViewById(R.id.text_total);
+                textView.setText(price);
             }
 
             @Override
@@ -374,13 +452,13 @@ public class Tshirt_Design extends AppCompatActivity {
                 if (textvis==0){
                     drag_text.setVisibility(View.VISIBLE);
                     textvis=1;
-                    price = culculateTotal(temp,size,vis,textvis);
+                    price = culculateTotal(vis,textvis,quant);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else{
                     drag_text.setVisibility(View.GONE);
                     textvis=0;
-                    price = culculateTotal(temp,size,vis,textvis);
+                    price = culculateTotal(vis,textvis,quant);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }
@@ -464,20 +542,15 @@ public class Tshirt_Design extends AppCompatActivity {
         };
     }
 
-    private String culculateTotal(int style, int size, int photo, int txt){
-        int[][] prices = {{10,11,12,13,14},
-                         {11,12,13,14,15},
-                         {12,13,14,15,16}};
-
-        int total=0;
+    private String culculateTotal(int photo, int txt, int quant){
+        int total = 10;
         String sum;
-        total += prices[style][size];
-
-         if (photo != 0)
+        if (photo != 0)
              total+=4;
-         if (txt != 0)
+        if (txt != 0)
              total+=3;
-         sum=Integer.toString(total) +" Euro";
-         return sum;
+        total = total * quant;
+        sum=Integer.toString(total) +" Euro";
+        return sum;
     }
 }

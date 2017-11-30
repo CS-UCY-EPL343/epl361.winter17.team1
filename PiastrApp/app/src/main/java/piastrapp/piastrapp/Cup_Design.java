@@ -27,7 +27,7 @@ public class Cup_Design extends AppCompatActivity {
     private static Button button_text;
     private ImageButton b4,b5,b6,b7,b8;
     private ImageView img_view;
-    private Spinner spinner;
+    private Spinner spinner,spinner2;
     private EditText drag_text;
     private ViewGroup mainLayout;
     private int xDelta;
@@ -36,6 +36,7 @@ public class Cup_Design extends AppCompatActivity {
     public int vis = 0;
     public int photo = 0;
     public int textvis = 0;
+    public int quant = 0;
     private String price;
 
     @Override
@@ -50,6 +51,7 @@ public class Cup_Design extends AppCompatActivity {
         b8=(ImageButton) findViewById(R.id.imageButton8);
         button_text = (Button) findViewById(R.id.button_text);
         spinner = (Spinner)findViewById(R.id.spinner);
+        spinner2 = (Spinner) findViewById(R.id.spinner2);
         mainLayout = (RelativeLayout) findViewById(R.id.cups);
         drag_text = (EditText) findViewById(R.id.editText2);
         drag_text.setOnTouchListener(onTouchListener());
@@ -65,13 +67,19 @@ public class Cup_Design extends AppCompatActivity {
                     img_view.setImageResource(R.drawable.heart);
                     photo = 1;
                     vis = 1;
-                    price = culculateTotal(vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else if (vis == 1 && photo == 1){
                     vis = 0;
                     img_view.setVisibility(View.GONE);
-                    price = culculateTotal(vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else{
@@ -90,13 +98,19 @@ public class Cup_Design extends AppCompatActivity {
                     img_view.setImageResource(R.drawable.wings);
                     photo = 2;
                     vis = 1;
-                    price = culculateTotal(vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else if (vis == 1 && photo == 2){
                     vis = 0;
                     img_view.setVisibility(View.GONE);
-                    price = culculateTotal(vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else{
@@ -115,13 +129,19 @@ public class Cup_Design extends AppCompatActivity {
                     img_view.setImageResource(R.drawable.bow);
                     photo = 3;
                     vis = 1;
-                    price = culculateTotal(vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else if (vis == 1 && photo == 3){
                     vis = 0;
                     img_view.setVisibility(View.GONE);
-                    price = culculateTotal(vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else{
@@ -140,13 +160,19 @@ public class Cup_Design extends AppCompatActivity {
                     img_view.setImageResource(R.drawable.tree);
                     photo = 4;
                     vis = 1;
-                    price = culculateTotal(vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else if (vis == 1 && photo == 4){
                     vis = 0;
                     img_view.setVisibility(View.GONE);
-                    price = culculateTotal(vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else{
@@ -165,13 +191,19 @@ public class Cup_Design extends AppCompatActivity {
                     img_view.setImageResource(R.drawable.flower);
                     photo = 5;
                     vis = 1;
-                    price = culculateTotal(vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else if (vis == 1 && photo == 5){
                     vis = 0;
                     img_view.setVisibility(View.GONE);
-                    price = culculateTotal(vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else{
@@ -188,13 +220,19 @@ public class Cup_Design extends AppCompatActivity {
                 if (textvis==0){
                     drag_text.setVisibility(View.VISIBLE);
                     textvis=1;
-                    price = culculateTotal(vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }else{
                     drag_text.setVisibility(View.GONE);
                     textvis=0;
-                    price = culculateTotal(vis,textvis);
+                    if(quant == 0)
+                        price = culculateTotal(vis,textvis,1);
+                    else
+                        price = culculateTotal(vis,textvis,quant);
                     TextView textView = (TextView) findViewById(R.id.text_total);
                     textView.setText(price);
                 }
@@ -217,6 +255,41 @@ public class Cup_Design extends AppCompatActivity {
                     imgpos = -1;
                 else
                     imgpos = i;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView){
+
+            }
+        });
+
+        List<String> list2 = new ArrayList<String>();
+        list2.add("<Choose Quantity>");
+        list2.add("1");
+        list2.add("2");
+        list2.add("3");
+        list2.add("4");
+        list2.add("5");
+        list2.add("6");
+        list2.add("7");
+        list2.add("8");
+        list2.add("9");
+        list2.add("10+");
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list2);
+        dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner2.setAdapter(dataAdapter2);
+
+        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int j, long l) {
+                quant = j;
+                if (j==0)
+                    price = culculateTotal(vis,textvis,1);
+                else
+                    price = culculateTotal(vis,textvis,quant);
+                TextView textView = (TextView) findViewById(R.id.text_total);
+                textView.setText(price);
             }
 
             @Override
@@ -295,7 +368,7 @@ public class Cup_Design extends AppCompatActivity {
     }
 
 
-    private String culculateTotal(int photo, int txt){
+    private String culculateTotal(int photo, int txt, int quant){
 
         int total=5;
         String sum;
@@ -304,6 +377,9 @@ public class Cup_Design extends AppCompatActivity {
             total+=4;
         if (txt != 0)
             total+=3;
+
+        total = total * quant;
+
         sum=Integer.toString(total) +" Euro";
         return sum;
     }
